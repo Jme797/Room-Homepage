@@ -1,0 +1,211 @@
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+* {
+    font-family: 'Spartan', sans-serif;
+}
+header li {
+    list-style: none;
+    display: inline-block;
+    width: 90px;
+}
+header ul {
+    display: inline-block;
+}
+header a {
+    padding: 20px 10px;
+    text-decoration: none;
+    color: white;
+}
+header img {
+    padding: 50px 0px 0 50px ;
+}
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#hamburger {
+    display: block;
+}
+#sec1 {
+    height: 70%;
+    width: 100%;
+    font-size: 0;
+}
+#sec2 {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+}
+#sec1Image {
+    height: 100%;
+    width: 60%;
+    display: inline-block;
+    background-image: url("images/desktop-image-hero-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align: top;
+}
+
+#sec1Slides {
+    position: relative;
+    width: 40%;
+    box-sizing: border-box;
+    height: 100%;
+    max-height: 100%;
+    display: inline-block;
+    font-size: 19px;
+    padding: 2.5% 5%;
+}
+.flexColumn {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 40%;
+    margin-top: 30px;
+}
+#sec1Slides h1 {
+    font-size: 34px;
+}
+#sec1Slides a {
+    text-decoration: none;
+    letter-spacing: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+}
+#sec1Slides img {
+    margin-left: 30px;
+}
+p {
+    color: hsl(0, 0%, 63%);
+    font-size: 14px;
+}
+.sec2img {
+    height: 100%;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+.sec2img img {
+    height: 100%;
+}
+#sec2Slides h1 {
+    letter-spacing: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+#sec2Slides {
+    height: 100%;
+    flex-grow: 1.5;
+    box-sizing: border-box;
+    padding: 2.5% 5%;
+    font-size: 14px;
+}
+#sec1Slides a:hover {
+    opacity: 0.3;
+}
+#arrowContainer {
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+}
+.arrow {
+    width: 50%;
+    display: inline-block;
+    height: 100%;
+    background-color: black;
+}
+.arrow:hover {
+    background-color: rgba(77, 77, 77, 0.808);
+    cursor: pointer;
+}
+.arrow img {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 !important;
+    transform: scale(0.3);
+}
+#hamburger {
+    display: none;
+}
+#closeIcon {
+    display: none;
+    padding: 48px 45px 45px 50px;
+}
+@media only screen and (max-width: 376px) {
+    body,html  {
+        overflow-x: hidden;
+    }
+    #sec1 {
+        height: 100%;
+    }
+    #sec1Image {
+        width: 100%;
+        height: 50%;
+        background-image: url('images/mobile-image-hero-1.jpg');
+    }
+    #sec1Slides {
+        width: 100%;
+        height: 50%;
+        padding: 3% 8% 0 8%;
+    }
+    #sec1Slides h1 {
+        font-size: 24px;
+    }
+    #sec1Slides p {
+        font-size: 12px;
+    }
+    #sec2 {
+        flex-direction: column;
+        height: 100%;
+    }
+    #sec2Slides h1 {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    #sec2Slides p {
+        font-size: 12px;
+        line-height: 17px;
+    }
+    #sec2Slides {
+        padding: 10% 8%;
+    }
+    #hamburger {
+        display: inline-block;
+    }
+    header ul {
+        display: none;
+        vertical-align: top;
+        padding: 30px 0 30px 0;
+    }
+    #header {
+        padding: 40px 0;
+    }
+    #logo {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 50px 0 0 0;
+    }
+    #arrowContainer {
+        position: absolute;
+        top: -50px;
+        right: 0px;
+        left: auto;
+    }
+    
+}

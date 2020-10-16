@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Room homepage</title>
+</head>
+
+<body>
+  <header>
+    <img id="hamburger" src="images\icon-hamburger.svg">
+    <img id="closeIcon" src="images\icon-close.svg">
+    <img id="logo" src="images/logo.svg">
+    <ul>
+      <li><a href="#">home</a></a></li>
+      <li><a href="#">shop</a></a></li>
+      <li><a href="#">about</a></a></li>
+      <li><a href="#">contact</a></a></li>
+    </ul>
+  </header>
+  <div id="sec1">
+    <div id="sec1Image"></div>
+    <div id="sec1Slides">
+      <div class="flexColumn">
+        <h1 id="sec1Head">Discover innovative ways to decorate</h1>
+        <p id="sec1Body">We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.</p>
+        <a href="#">SHOP NOW<img id="arrow" src="images/icon-arrow.svg"></a>
+
+      </div>
+      <div id="arrowContainer">
+        <div class="arrow" id="slideLeft"><img src="images\icon-angle-left.svg"></div>
+        <div class="arrow" id="slideRight"><img src="images\icon-angle-right.svg"></div>
+      </div>
+    </div>
+  </div>
+  <div id="sec2">
+    <div class="sec2img" id="img1">
+      <img src="images\image-about-dark.jpg">
+    </div>
+    <div id="sec2Slides">
+      <h1>ABOUT OUR FURNITURE</h1>
+      <p>
+        Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specialists are available to help you create your dream space.
+      </p>
+    </div>
+    <div class="sec2img" id="img2">
+      <img src="images\image-about-light.jpg">
+    </div>
+  </div>
+
+
+
+  <script>
+    let arrowDiv = document.getElementById('arrowContainer');
+    let aboutImageLightDiv = document.getElementById('img2');
+    let sec1TextDiv = document.getElementById('sec1Slides');
+    let slideNum = 1;
+    let hamburger = document.getElementById('hamburger');
+    let closeIcon = document.getElementById('closeIcon');
+
+    setArrowWidths();
+
+    if (window.innerWidth < 376) {
+      hamburger.addEventListener('click', () => {
+        showLinksMobile();
+      })
+    }
+    window.onresize = () => {
+      setArrowWidths();
+      if (window.innerWidth < 376) {
+        hamburger.addEventListener('click', () => {
+          showLinksMobile();
+        })
+      } else if (window.innerWidth > 376) {
+        hamburger.addEventListener('click', () => {
+          showLinksDesktop();
+        })
+      }
+    }
+
+    function setArrowWidths() {
+
+      let width = 0;
+      let height = 0;
+
+      if (window.innerWidth > 375) {
+        let start = sec1TextDiv.getBoundingClientRect().left;
+        let end = aboutImageLightDiv.getBoundingClientRect().left;
+
+        width = end - start;
+        height = width / 2;
+      } else {
+        width = "100";
+        height = "50";
+      }
+
+
+
+      arrowDiv.style.width = width + "px";
+      arrowDiv.style.height = height + "px";
+
+    }
+
+    document.getElementById('slideLeft').addEventListener('click', () => {
+      let x = -1;
+      setSlides(x);
+    });
+    document.getElementById('slideRight').addEventListener('click', () => {
+      let x = 1;
+      setSlides(x);
+    });
+
+    function setSlides(x) {
+
+      if (slideNum == 3 && x == 1) {
+        slideNum = 1;
+      } else if (slideNum == 1 && x == -1) {
+        slideNum = 3;
+      } else {
+        slideNum = slideNum + x;
+      }
+
+      let sec1Image = document.getElementById('sec1Image');
+      let sec1Head = document.getElementById('sec1Head');
+      let sec1Body = document.getElementById('sec1Body');
+
+      switch (slideNum) {
+        case 1:
+          sec1Image.style.backgroundImage = "url('images/desktop-image-hero-1.jpg')";
+          sec1Head.innerHTML = "Discover innovative ways to decorate";
+          sec1Body.innerHTML = "        Our multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you.Find the furniture pieces you need, from traditional to contemporary styles or anything in between.Product specialists are available to help you create your dream space.";
+          break;
+        case 2:
+          sec1Image.style.backgroundImage = "url('images/desktop-image-hero-2.jpg')";
+          sec1Head.innerHTML = "We are available all across the globe";
+          sec1Body.innerHTML = "With stores all over the world, it's easy for you to find furniture for your home or place of business. Locally, we’re in most major cities throughout the country. Find the branch nearest you using our store locator. Any questions? Don't hesitate to contact us today.";
+          break;
+        case 3:
+          sec1Image.style.backgroundImage = "url('images/desktop-image-hero-3.jpg')";
+          sec1Head.innerHTML = "Manufactured with the best materials";
+          sec1Body.innerHTML = "Our modern furniture store provide a high level of quality. Our company has invested in advanced technology to ensure that every product is made as perfect and as consistent as possible. With three decades of experience in this industry, we understand what customers want for their home and office.";
+          break;
+      }
+      if (window.innerWidth < 376) {
+        switch (slideNum) {
+          case 1:
+            sec1Image.style.backgroundImage = "url('images/mobile-image-hero-1.jpg')";
+            break;
+          case 2:
+            sec1Image.style.backgroundImage = "url('images/mobile-image-hero-2.jpg')";
+            break;
+          case 3:
+            sec1Image.style.backgroundImage = "url('images/mobile-image-hero-3.jpg')";
+            break;
+        }
+      }
+    }
+
+    function showLinksDesktop() {
+      let header = document.getElementsByTagName('header')[0];
+      let ulLinks = header.getElementsByTagName('ul')[0];
+      let ulLi = ulLinks.getElementsByTagName('li');
+      let links = ulLinks.getElementsByTagName('a');
+
+      header.style.backgroundColor = "transparent";
+      ulLinks.style.display = "inline-block";
+      hamburger.style.display = "none";
+      logo.style.display = "inline-block";
+      closeIcon.style.display = "none";
+
+      closeIcon.addEventListener('click', () => {
+        closeLinks();
+      });
+
+      for (let i = 0; i < links.length; i++) {
+        links[i].style.color = "white";
+        links[i].style.fontSize = "22px";
+        links[i].style.fontWeight = "600";
+      }
+      for (let i = 0; i < links.length; i++) {
+        ulLi[i].style.width = "50px";
+      }
+    }
+
+    function showLinksMobile() {
+      let header = document.getElementsByTagName('header')[0];
+      let ulLinks = header.getElementsByTagName('ul')[0];
+      let ulLi = ulLinks.getElementsByTagName('li');
+      let links = ulLinks.getElementsByTagName('a');
+
+      header.style.backgroundColor = "white";
+      ulLinks.style.display = "inline-block";
+      hamburger.style.display = "none";
+      logo.style.display = "none";
+      closeIcon.style.display = "inline-block";
+
+      closeIcon.addEventListener('click', () => {
+        closeLinks();
+      });
+
+      for (let i = 0; i < links.length; i++) {
+        links[i].style.color = "black";
+        links[i].style.fontSize = "12px";
+        links[i].style.fontWeight = "700";
+      }
+      for (let i = 0; i < links.length; i++) {
+        ulLi[i].style.width = "50px";
+      }
+
+    }
+    function closeLinks() {
+      let header = document.getElementsByTagName('header')[0];
+      let ulLinks = header.getElementsByTagName('ul')[0];
+      let ulLi = ulLinks.getElementsByTagName('li');
+      let links = ulLinks.getElementsByTagName('a');
+
+      header.style.backgroundColor = "transparent";
+      ulLinks.style.display = "none";
+      hamburger.style.display = "inline-block";
+      logo.style.display = "inline-block";
+      closeIcon.style.display = "none";
+
+    }
+  </script>
+
+</body>
+
+</html>
