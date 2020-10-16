@@ -118,6 +118,7 @@ p {
     bottom: 0;
     left: 0;
     font-size: 0;
+    max-height: 80px;
 }
 .arrow {
     width: 50%;

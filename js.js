@@ -6,7 +6,7 @@ let slideNum = 1;
 let hamburger = document.getElementById('hamburger');
 let closeIcon = document.getElementById('closeIcon');
 
-setArrowWidths();
+window.onload = setArrowWidths();
 
 if (window.innerWidth < 376) {
     hamburger.addEventListener('click', () => {
